@@ -8,13 +8,13 @@ RUN apt-get update && apt-get install -y maven2 maven ant ruby rbenv make softwa
 
 RUN add-apt-repository -y ppa:webupd8team/java && apt-get -qq update
 
-RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true |  /usr/bin/debconf-set-selections
+RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true |  /usr/bin/debconf-set-selections
 
-RUN apt-get -qqy install oracle-java7-installer oracle-java6-installer
+RUN apt-get -qqy install oracle-java8-installer oracle-java8-set-default
 
 
 
-ENV JAVA_HOME /usr/lib/jvm/java-7-oracle/
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle/
 
 #flexibee certs
 COPY FlexiBee-cacert.crt /FlexiBee-cacert.crt
